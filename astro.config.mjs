@@ -5,7 +5,7 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Commands I'll forget",
+      title: "Commands.Wiki",
       social: {
         github: "https://github.com/lerndmina/commands-ill-forget",
       },

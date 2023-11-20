@@ -7,12 +7,11 @@ Welcome to the 'Media' section! This is your one-stop shop for commands specific
 
 
 ### H264 Conversion With FFMPEG
+This is a bash command that converts all MKV video files in the current directory to H.264 format using the ffmpeg tool.
 ```bash
 mkdir h264vids
 for f in *.mkv; do ffmpeg -i "$f" -map 0 -c copy -c:v libx264 -crf 23 -preset medium h264vids/"${f%.*}.mkv"; done;
 ```
-This is a bash command that converts all MKV video files in the current directory to H.264 format using the ffmpeg tool.
-
 Here's a step-by-step breakdown:
 
 1. `mkdir h264vids`: This command creates a new directory named `h264vids` in the current directory.
