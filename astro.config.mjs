@@ -6,10 +6,18 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Commands.Wiki",
+      head: [
+        {
+          tagName: "meta",
+          attributes: {
+            name: "darkreader-lock",
+          },
+        },
+      ],
       social: {
         github: "https://github.com/lerndmina/commands-wiki",
       },
-      favicon: '/mascot_favicon_trimmed.ico',
+      favicon: "/mascot_favicon_trimmed.ico",
       sidebar: [
         {
           label: "Intro",
