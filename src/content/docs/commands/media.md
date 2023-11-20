@@ -32,9 +32,10 @@ Here's a step-by-step breakdown:
 ```bash
 convert mascot.png -quality 70 mascot.webp
 ```
+This uses the `convert` utility from [ImageMagick](https://www.imagemagick.org/) to convert an image file named `mascot.png` into a WebP format image named `mascot.webp`, while also compressing the image quality to `70%`.
 
 ### Crop transparent background from image
-This command is using the `convert` command from the ImageMagick software suite to crop away the transparent background.
+This command is using the `convert` command from the [ImageMagick](https://www.imagemagick.org/) software suite to crop away the transparent background.
 ```bash
 convert mascot_favicon.png -trim +repage mascot_favicon_trimmed.png
 ```
