@@ -33,5 +33,5 @@ Contributions are welcome. If you have commands that you use in your day-to-day 
 
 
 ### Acknowledgements
-[Astro](https://astro.build/)
-[Starlight](https://starlight.astro.build/)
+- [Astro](https://astro.build/)
+- [Starlight](https://starlight.astro.build/)
