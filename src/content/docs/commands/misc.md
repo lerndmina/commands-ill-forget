@@ -72,3 +72,13 @@ for dir in */; do
 done
 ```
 This bash script combines all Markdown files in each subdirectory into a single Markdown file named after the subdirectory. It loops through each subdirectory, concatenates all Markdown files in it using `cat`, and outputs the result to a new Markdown file.
+
+### Find unique values for a field in a bunch of json files:
+```bash
+find . -type f -name "*.json" | xargs cat {} | jq .<name_of_the_field> -c | sort | uniq
+```
+
+#### Example
+```bash
+find . -type f -name "*.json" | xargs cat {} | jq .status -c | sort | uniq
+```
