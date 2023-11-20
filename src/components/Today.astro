@@ -1,6 +1,5 @@
 ---
 var buildTime = new Date();
-buildTime.setHours(buildTime.getHours() - 1);
 ---
 
 <script>
@@ -11,8 +10,7 @@ function timeAgo() {
   }
 
   const timeStamp = new Date(timeElement.innerHTML);
-  console.log(`timeStamp: ${timeStamp}`); 
-  // huh 
+  // ^ This is such a hack.
   const seconds = Math.floor((new Date().getTime() - timeStamp.getTime()) / 1000);
   const intervals = [
     { label: 'year', seconds: 31536000 },
@@ -24,7 +22,6 @@ function timeAgo() {
   ];
 
   for (let i = 0; i < intervals.length; i++) {
-    console.log(intervals[i]);
     const currentInterval = intervals[i];
     const count = Math.floor(seconds / currentInterval.seconds);
     if (count >= 1) {
