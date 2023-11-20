@@ -7,19 +7,19 @@ export default defineConfig({
     starlight({
       title: "Commands I'll forget",
       social: {
-        github: "https://github.com/withastro/starlight",
+        github: "https://github.com/lerndmina/commands-ill-forget",
       },
       sidebar: [
         {
-          label: "Guides",
+          label: "Intro",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Go take a look!", link: "/guides/intro/" },
+            { label: "A brief Intro", link: "/intro/" },
           ],
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Commands",
+          autogenerate: { directory: "commands" },
         },
       ],
     }),
