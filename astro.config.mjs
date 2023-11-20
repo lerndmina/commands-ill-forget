@@ -8,8 +8,8 @@ export default defineConfig({
       title: "Commands.Wiki",
       head: [
         {
-          tagName: "meta",
-          attributes: {
+          tag: "meta",
+          attrs: {
             name: "darkreader-lock",
           },
         },
