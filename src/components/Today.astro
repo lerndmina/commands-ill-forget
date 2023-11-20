@@ -1,7 +1,9 @@
 ---
+// Serverside code to get the build time
 var buildTime = new Date();
 ---
 
+<!-- Clientside code to get the timesince build -->
 <script>
 let timeElement = document.getElementById('time') as HTMLSpanElement;
 function timeAgo() {
@@ -10,7 +12,7 @@ function timeAgo() {
   }
 
   const timeStamp = new Date(timeElement.innerHTML);
-  // ^ This is such a hack.
+  // ^ This is such a hack. Astro supposedly has a way to pass variables into a script directly but it doesn't work so I have to store it in invsiible html and then read it from there. :(
   const seconds = Math.floor((new Date().getTime() - timeStamp.getTime()) / 1000);
   const intervals = [
     { label: 'year', seconds: 31536000 },
