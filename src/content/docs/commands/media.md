@@ -27,3 +27,8 @@ Here's a step-by-step breakdown:
 - `-crf 23`: This sets the Constant Rate Factor to 23, which is a good balance between quality and file size.
 - `-preset medium`: This sets the encoding speed to 'medium'. Faster encoding speeds result in larger file sizes, and slower speeds result in smaller file sizes.
 - `h264vids/"${f%.*}.mkv"`: This is the output file. It's placed in the `h264vids` directory and has the same name as the input file, but with the extension changed to `.mkv`.
+
+### Convert Images And Compress
+```bash
+convert mascot.png -quality 70 mascot.webp
+```
