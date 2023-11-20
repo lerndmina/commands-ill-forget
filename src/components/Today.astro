@@ -1,0 +1,14 @@
+---
+var date = new Date();
+var dd = String(date.getUTCDate()).padStart(2, "0");
+var mm = String(date.getUTCMonth() + 1).padStart(2, "0"); //January is 0!
+var yyyy = date.getUTCFullYear();
+
+var hours = String(date.getUTCHours()).padStart(2, "0");
+var minutes = String(date.getUTCMinutes()).padStart(2, "0");
+var seconds = String(date.getUTCSeconds()).padStart(2, "0");
+
+var today = yyyy + "/" + mm + "/" + dd;
+var time = hours + ":" + minutes + ":" + seconds;
+---
+{today} - {time}
