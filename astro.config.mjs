@@ -7,7 +7,7 @@ export default defineConfig({
     starlight({
       title: "Commands.Wiki",
       social: {
-        github: "https://github.com/lerndmina/commands-ill-forget",
+        github: "https://github.com/lerndmina/commands-wiki",
       },
       sidebar: [
         {
