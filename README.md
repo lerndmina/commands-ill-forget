@@ -1,53 +1,37 @@
-# Starlight Starter Kit: Basics
+# Common Commands.Wiki
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
-npm create astro@latest -- --template starlight
-```
+This project is a collection of commonly used commands that are often forgotten and then googled repeatedly. The aim is to provide a quick reference guide for these commands. The descriptions and instructions are mostly provided by GPT4.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+### Features
+- A list of commonly used commands.
+- Descriptions and instructions for each command.
+- Easy navigation through the commands.
+### Getting Started
+To get started with this project, clone the repository and install the dependencies.
+```bash
+git clone https://github.com/lerndmina/commands-wiki
+cd commands-wiki
+yarn
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+### Usage
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+To start the project, run the following command:
+```bash
+yarn run dev
+```
 
-Static assets, like favicons, can be placed in the `public/` directory.
+This will start the project in your default browser.
 
-## 🧞 Commands
+### Disclaimer
+The content of this project was written at `4:20 am`. It might not be entirely correct or make sense. It was primarily created for personal use and later decided to be shared on the internet.
 
-All commands are run from the root of the project, from a terminal:
+### Contributing
+Contributions are welcome. If you have commands that you use in your day-to-day life that you keep forgetting or you found a mistake, feel free to create an issue or a pull request.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+### Acknowledgements
+[Astro](https://astro.build/)
+[Starlight](https://starlight.astro.build/)
