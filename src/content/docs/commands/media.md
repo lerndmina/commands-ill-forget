@@ -32,3 +32,36 @@ Here's a step-by-step breakdown:
 ```bash
 convert mascot.png -quality 70 mascot.webp
 ```
+
+### Crop transparent background from image
+This command is using the `convert` command from the ImageMagick software suite to crop away the transparent background.
+```bash
+convert mascot_favicon.png -trim +repage mascot_favicon_trimmed.png
+```
+1. `convert mascot_favicon.png`: This initiates the conversion process using the ImageMagick `convert` command, and it specifies the input file as `mascot_favicon.png`.
+
+2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.
+
+3. `+repage`: This option resets the virtual canvas information of the image. After trimming, the image may have a smaller size, and `+repage` ensures that the image's virtual canvas is adjusted to match its actual dimensions.
+
+4. `mascot_favicon_trimmed.png`: This specifies the output filename for the resulting image with the trimmed transparent background.
+
+So, in summary, this command takes an input image (`mascot_favicon.png`), removes the transparent background through trimming, adjusts the virtual canvas, and then saves the result as `mascot_favicon_trimmed.png`.
+
+### Crop image to create favicon
+This command crops an image and removes its near transparent pixels in order to create a favicon for a website.
+```bash
+convert mascot_favicon.png -trim +repage -resize 180x180 mascot_favicon_trimmed.ico
+```
+1. `convert mascot_favicon.png`: This initiates the conversion process using the ImageMagick `convert` command and specifies the input file as `mascot_favicon.png`.
+
+2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.
+
+3. `+repage`: This option resets the virtual canvas information of the image. After trimming, the image may have a smaller size, and `+repage` ensures that the image's virtual canvas is adjusted to match its actual dimensions.
+
+4. `-resize 180x180`: This option resizes the image to a width of 180 pixels and a height of 180 pixels. This is commonly used for creating favicons, which are small icons used to represent websites.
+
+5. `mascot_favicon_trimmed.ico`: This specifies the output filename for the resulting image with the trimmed transparent background and resized dimensions. The file is saved in the ICO (Icon) format, which is often used for favicons.
+
+So, in summary, this command takes an input image (`mascot_favicon.png`), removes the transparent background through trimming, adjusts the virtual canvas, resizes the image to 180x180 pixels, and then saves the result as `mascot_favicon_trimmed.ico`.
+
