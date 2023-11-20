@@ -9,6 +9,6 @@ var minutes = String(date.getUTCMinutes()).padStart(2, "0");
 var seconds = String(date.getUTCSeconds()).padStart(2, "0");
 
 var today = yyyy + "/" + mm + "/" + dd;
-var time = hours + ":" + minutes + ":" + seconds;
+var time = hours + ":" + minutes; // + ":" + seconds;
 ---
 {today} - {time}
