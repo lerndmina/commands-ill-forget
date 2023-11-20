@@ -52,7 +52,7 @@ sudo timedatectl
 
 3. `sudo timedatectl`: This command displays the current date and time settings, including the newly set timezone.
 
-### Make all minecraft servers in a directory "online-mode=false":
+### Make all minecraft servers in a directory "online-mode=false"
 ```bash
 sudo sed -i 's/online-mode=true/online-mode=false/g' $( sudo find . -type f | grep server.properties)
 ```
@@ -73,7 +73,7 @@ done
 ```
 This bash script combines all Markdown files in each subdirectory into a single Markdown file named after the subdirectory. It loops through each subdirectory, concatenates all Markdown files in it using `cat`, and outputs the result to a new Markdown file.
 
-### Find unique values for a field in a bunch of json files:
+### Find unique values for a field in a bunch of json files
 ```bash
 find . -type f -name "*.json" | xargs cat {} | jq .<name_of_the_field> -c | sort | uniq
 ```

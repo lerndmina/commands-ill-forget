@@ -35,7 +35,7 @@ openssl s_client -connect <ip/hostname>:587 -starttls smtp
 
 - `-starttls smtp`: This tells the client to use the STARTTLS command to upgrade a plaintext connection to an encrypted (TLS or SSL) connection before issuing any SMTP commands.
 
-### Generate a standalone certificate:
+### Generate a standalone certificate
 ```bash
 sudo certbot certbot --standalone -d <dns-name>
 ```
