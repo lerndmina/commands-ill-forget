@@ -9,6 +9,7 @@ export default defineConfig({
       social: {
         github: "https://github.com/lerndmina/commands-wiki",
       },
+      favicon: '/mascot_favicon_trimmed.ico',
       sidebar: [
         {
           label: "Intro",
