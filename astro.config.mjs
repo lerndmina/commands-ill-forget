@@ -26,12 +26,17 @@ export default defineConfig({
           label: "Intro",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "A brief Intro", link: "/intro/" },
+            {
+              label: "A brief Intro",
+              link: "/intro/",
+            },
           ],
         },
         {
           label: "Commands",
-          autogenerate: { directory: "commands" },
+          autogenerate: {
+            directory: "commands",
+          },
         },
         // {
         //   label: "Tutorials",
