@@ -40,10 +40,10 @@ export default defineConfig({
             directory: "commands",
           },
         },
-        // {
-        //   label: "Tutorials",
-        //   autogenerate: { directory: "tutorials" },
-        // },
+        {
+          label: "Tutorials",
+          autogenerate: { directory: "tutorials" },
+        },
       ],
     }),
   ],
