@@ -21,6 +21,7 @@ export default defineConfig({
         github: "https://github.com/lerndmina/commands-wiki",
       },
       favicon: "/mascot_favicon_trimmed.ico",
+      lastUpdated: true,
       titleDelimiter: "•",
       sidebar: [
         {
