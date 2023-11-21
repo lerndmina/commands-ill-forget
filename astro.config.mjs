@@ -14,6 +14,9 @@ export default defineConfig({
           },
         },
       ],
+      editLink: {
+        baseUrl: "https://github.com/lerndmina/commands-wiki/edit/master/",
+      },
       social: {
         github: "https://github.com/lerndmina/commands-wiki",
       },
