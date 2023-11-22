@@ -1,6 +1,8 @@
 ---
 title: Add A Sudo User
 description: How to add a sudo user to a Linux Server
+sidebar:
+  hidden: true
 ---
 
 #### Before We Get Started
