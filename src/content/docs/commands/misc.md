@@ -78,7 +78,30 @@ This bash script combines all Markdown files in each subdirectory into a single 
 find . -type f -name "*.json" | xargs cat {} | jq .<name_of_the_field> -c | sort | uniq
 ```
 
+The command is a pipeline of several commands:
+1. `find . -type f -name "*.json"`: This command searches for all JSON files in the current directory and its subdirectories. The `.` specifies the current directory as the starting point for the search. `-type f` restricts the search to files, and `-name "*.json"` matches any file that ends with `.json`.
+2. `xargs cat {}`: This command reads items from the standard input (in this case, the list of JSON files found by the `find` command), and executes the `cat` command for each item. The `cat` command concatenates and prints the contents of the files.
+3. `jq .<name_of_the_field> -c`: This command uses `jq`, a command-line JSON processor, to extract the values of the specified field from the JSON data. Replace `<name_of_the_field>` with the name of the field you're interested in. The `-c` option tells `jq` to output each JSON object on a single line.
+4. `sort`: This command sorts its input lines. In this case, it sorts the values extracted by `jq`.
+5. `uniq`: This command filters out adjacent duplicate lines from its input. In this case, it removes duplicate values from the sorted list of field values.
+
 #### Example
 ```bash
 find . -type f -name "*.json" | xargs cat {} | jq .status -c | sort | uniq
 ```
+
+### Installing docker
+The code snippet provided demonstrates the installation process for Docker, a popular platform for containerization. It showcases a command written in the Bash scripting language that utilizes the `curl` utility to download a script from the specified URL and execute it.
+```bash title="Bash"
+curl -sSL https://get.docker.com/ | CHANNEL=stable bash
+```
+
+Let's break down the code:
+
+The command begins with `curl -sSL`, where `curl` is a command-line tool used for making HTTP requests. The `-sSL` options passed to `curl` instruct it to work silently (`-s`) and follow redirects (`-L`) while downloading the script.
+
+The URL `https://get.docker.com/` points to the Docker installation script. This script is responsible for setting up the necessary components and dependencies required for Docker to run on the system.
+
+The pipe symbol (`|`) is used to redirect the output of the `curl` command to the next command in the pipeline. In this case, the output is passed to the `bash` command.
+
+The `bash` command executes the downloaded script, which installs Docker on the system. The `CHANNEL=stable` part is an environment variable assignment that sets the installation channel to "stable". This ensures that the stable version of Docker is installed.

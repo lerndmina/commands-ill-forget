@@ -8,14 +8,15 @@ In the "Files" page, you will find a collection of commands and information rela
 ### Zipping a file into a .tar.gz
 This is a command for compressing a directory or a file into a `.tar.gz` file
 ```bash
-tar -czf <file_name>.tar.gz <files/directories>
+tar -czvf <file_name>.tar.gz <files/directories>
 ```
 
 1. `tar`: This is the command-line utility for handling tape archives (tar). It is commonly used for bundling files and directories together.
 
-2. `-czf`: These are options used with the `tar` command:
+2. `-czvf`: These are options used with the `tar` command:
    - `-c`: Create a new archive.
    - `-z`: Compress the archive using gzip.
+   - `-v`: This is a optional argument to print all files being compressed. 
    - `-f`: Specify the name of the archive file.
 
 3. `<file_name>.tar.gz`: This is the desired name for the compressed archive. Replace `<file_name>` with the actual name you want to give to the archive. The extension `.tar.gz` indicates that the archive will be in tar format and compressed using gzip.
