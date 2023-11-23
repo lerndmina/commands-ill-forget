@@ -2,7 +2,7 @@
 title: How to install Starlight
 description: Instructions on how to install starlight
 sidebar:
-  hidden: false
+  hidden: true
 ---
 
 <script>
