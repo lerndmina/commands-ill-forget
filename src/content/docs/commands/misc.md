@@ -11,6 +11,7 @@ This is a command for decrypting all files for a user when using SSE in Nextclou
 ```bash
 sudo -u www-data php occ encryption:decrypt-all <USERNAME>
 ```
+[USERNAME]: <> (placeholder=username validation="regex .+" desc="The username of the Nextcloud user to decrypt all files for")
 Here's a breakdown:
 
 - `sudo -u www-data`: This runs the following command as the `www-data` user, which is typically the user that runs the web server and has the necessary permissions to access Nextcloud's files.
@@ -30,6 +31,7 @@ mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '<new_password>'; 
 sudo killall -QUIT mysql mysqld_safe mysqld
 sudo systemctl start mysql
 ```
+[new_password]: <> (type=password validation="regex .{8,}" desc="The new password for the user 'root'@'localhost'")
 1. `sudo systemctl stop mysql`: This command stops the MySQL service. It's necessary to stop the service before we can start it in safe mode.
 
 2. `sudo mysqld_safe --skip-grant-tables --skip-networking &`: This command starts the MySQL service in safe mode. The `--skip-grant-tables` option allows us to connect to the database without a password and with all privileges, and `--skip-networking` prevents other clients from connecting to the database.
@@ -47,6 +49,7 @@ sudo timedatectl list-timezones
 sudo timedatectl set-timezone <timezone>
 sudo timedatectl
 ```
+[timezone]: <> (placeholder="Europe/Stockholm" desc="The timezone to set your computer to")
 1. `sudo timedatectl list-timezones`: This command lists all available timezones.
 
 2. `sudo timedatectl set-timezone <timezone>`: This command sets the system timezone to some timezone. One example of a timezone is `Europe/Stockholm`.
@@ -80,7 +83,7 @@ Lists all unique values for fields in all json files in the current directory.
 ```bash
 find . -type f -name "*.json" | xargs cat {} | jq .<name_of_the_field> -c | sort | uniq
 ```
-
+[name_of_the_field]: <> (placeholder=status desc="The path to a field in the json file")
 The command is a pipeline of several commands:
 1. `find . -type f -name "*.json"`: This command searches for all JSON files in the current directory and its subdirectories. The `.` specifies the current directory as the starting point for the search. `-type f` restricts the search to files, and `-name "*.json"` matches any file that ends with `.json`.
 2. `xargs cat {}`: This command reads items from the standard input (in this case, the list of JSON files found by the `find` command), and executes the `cat` command for each item. The `cat` command concatenates and prints the contents of the files.
