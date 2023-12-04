@@ -33,6 +33,8 @@ Converts images and compresses them
 ```bash
 convert <from> -quality 70 <to>
 ```
+[from]: <> (placeholder=img.png validation="file image/.+" desc="The filename of the source file")
+[to]: <> (placeholder=output.png validation="regex (.+)\.(.+)" desc="The filename of the destination file with its file extension")
 This uses the `convert` utility from [ImageMagick](https://www.imagemagick.org/) to convert an image file `<from>` another file named `<to>`, while also compressing the image quality to `70%`.
 
 ### Crop transparent background from image
@@ -40,6 +42,8 @@ This command is using the `convert` command from the [ImageMagick](https://www.i
 ```bash
 convert <from> -trim +repage <to>
 ```
+[from]: <> (placeholder=img.png validation="file image/.+" desc="The filename of the source file")
+[to]: <> (placeholder=output.png validation="regex (.+)\.(.+)" desc="The filename of the destination file with its file extension")
 1. `convert <from>`: This initiates the conversion process using the ImageMagick `convert` command, and it specifies the input file as `<from>`.
 
 2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.
@@ -55,6 +59,8 @@ This command crops an image and removes its near transparent pixels in order to 
 ```bash
 convert <from> -trim +repage -resize 180x180 <to>.ico
 ```
+[from]: <> (placeholder=favicon.png validation="file image/.+" desc="The filename of the source file")
+[to]: <> (placeholder=favicon validation="regex (.+)" desc="The filename of the .ico file without the .ico part")
 1. `convert <from>`: This initiates the conversion process using the ImageMagick `convert` command and specifies the input file as `<from>`, replace `<from>` with the name of the file you are trying to crop and convert.
 
 2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.

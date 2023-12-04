@@ -10,6 +10,8 @@ This is a command for compressing a directory or a file into a `.tar.gz` file
 ```bash
 tar -czvf <file_name>.tar.gz <files/directories>
 ```
+[file_name]: <> (placeholder=archive validation="regex [A-Za-z\d\s\-_\.]+" desc="This is the name of the archive to write without the .tar.gz part")
+[files/directories]: <> (placeholder=* validation="regex .+" desc="This is a list of all files to include in the archive, the files are separated with spaces")
 
 1. `tar`: This is the command-line utility for handling tape archives (tar). It is commonly used for bundling files and directories together.
 
