@@ -60,7 +60,7 @@ This command crops an image and removes its near transparent pixels in order to 
 convert <from> -trim +repage -resize 180x180 <to>.ico
 ```
 [from]: <> (placeholder=favicon.png validation="file image/.+" desc="The filename of the source file")
-[to]: <> (placeholder=favicon validation="regex (.+)\.(?:(?!ico))(.+)" desc="The filename of the .ico file without the .ico part")
+[to]: <> (placeholder=favicon validation="regex (.+)" desc="The filename of the .ico file without the .ico part")
 1. `convert <from>`: This initiates the conversion process using the ImageMagick `convert` command and specifies the input file as `<from>`, replace `<from>` with the name of the file you are trying to crop and convert.
 
 2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.
