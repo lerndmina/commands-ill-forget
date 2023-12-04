@@ -23,7 +23,7 @@ Prints out all applications running on a certain port
 ```bash
 sudo lsof -i :<PORT>
 ```
-[PORT]: <> (placeholder=80 validation="regex (6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3" desc="Portnumber that should be checked")
+[PORT]: <> (placeholder=80 validation="regex (6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3})" desc="Portnumber that should be checked")
 - `sudo`: This runs the following command with root privileges, which are often required to inspect network activity.
 
 - `lsof -i :<PORT>`: lsof is a command meaning 'list open files', and the `-i` option tells it to list files using Internet addresses. `:<PORT>` should be replaced with the port number you're interested in. For example, `:80` would list all processes using port `80`.
