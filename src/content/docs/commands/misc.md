@@ -7,52 +7,63 @@ TODO: Add description
 ```
 
 ### Nextcloud unencrypt all files for a user with SSE (Server Side Encryption)
+This is a command for decrypting all files for a user when using SSE in Nextcloud.
 ```bash
-sudo -u www-data php occ encryption:decrypt-all {USERNAME}
+sudo -u www-data php occ encryption:decrypt-all <USERNAME>
 ```
+<!-- 
+[USERNAME]: <> (placeholder=username validation="regex .+" desc="The username of the Nextcloud user to decrypt all files for")
+ -->
 Here's a breakdown:
 
 - `sudo -u www-data`: This runs the following command as the `www-data` user, which is typically the user that runs the web server and has the necessary permissions to access Nextcloud's files.
 
-- `php occ encryption:decrypt-all {USERNAME}`: This is the command that actually performs the decryption.
+- `php occ encryption:decrypt-all <USERNAME>`: This is the command that actually performs the decryption.
 
   - `php occ`: This runs Nextcloud's command line interface. occ stands for 'ownCloud console', as Nextcloud is a fork of ownCloud.
 
-  - `encryption:decrypt-all {USERNAME}`: This is the command to decrypt all files. `{USERNAME}` should be replaced with the username of the user whose files you want to decrypt.
+  - `encryption:decrypt-all <USERNAME>`: This is the command to decrypt all files. `<USERNAME>` should be replaced with the username of the user whose files you want to decrypt.
 
 ### MySQL Reset The Root Password (You idiot.)
+This command stops the mysql server and starts a new one locally, it then logs you in as root and allows you to change the password.
 ```bash
 sudo systemctl stop mysql
 sudo mysqld_safe --skip-grant-tables --skip-networking &
-mysql -u root
-
-FLUSH PRIVILEGES;
-
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '<new_password>'; FLUSH PRIVILEGES;"
+sudo killall -QUIT mysql mysqld_safe mysqld
+sudo systemctl start mysql
 ```
+<!-- 
+[new_password]: <> (type=password validation="regex .{8,}" desc="The new password for the user 'root'@'localhost'")
+ -->
 1. `sudo systemctl stop mysql`: This command stops the MySQL service. It's necessary to stop the service before we can start it in safe mode.
 
 2. `sudo mysqld_safe --skip-grant-tables --skip-networking &`: This command starts the MySQL service in safe mode. The `--skip-grant-tables` option allows us to connect to the database without a password and with all privileges, and `--skip-networking` prevents other clients from connecting to the database.
 
-3. `mysql -u root`: This command connects to the MySQL database as the root user.
+3. `mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '<new_password>'; FLUSH PRIVILEGES;`: This command connects to the MySQL database as the root user. It then changes the password to `<new_password>`, replace `<new_password>` with the new password you want to use for the root user.
 
-4. `FLUSH PRIVILEGES;`: This is a MySQL command that reloads the grant tables in the database, applying the changes we're about to make.
+4. `sudo killall -QUIT mysql mysqld_safe mysqld`: This command tells the mysql server running to stop.
 
-5. `ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';`: This is the MySQL command that changes the password. Replace `'new_password'` with the new password you want to use for the root user. After running this command, the root password will be reset.
+5. `sudo systemctl start mysql`: This command starts the MySQL service again.
 
 ### Change The System Timezone
+These commands are for setting your timezone
 ```bash
 sudo timedatectl list-timezones
-sudo timedatectl set-timezone Europe/Stockholm
+sudo timedatectl set-timezone <timezone>
 sudo timedatectl
 ```
+<!-- 
+[timezone]: <> (placeholder="Europe/Stockholm" desc="The timezone to set your computer to") 
+-->
 1. `sudo timedatectl list-timezones`: This command lists all available timezones.
 
-2. `sudo timedatectl set-timezone Europe/Stockholm`: This command sets the system timezone to `Europe/Stockholm`. You can replace `Europe/Stockholm` with any timezone from the list produced by the first command.
+2. `sudo timedatectl set-timezone <timezone>`: This command sets the system timezone to some timezone. One example of a timezone is `Europe/Stockholm`.
 
 3. `sudo timedatectl`: This command displays the current date and time settings, including the newly set timezone.
 
 ### Make all minecraft servers in a directory "online-mode=false"
+A bash command to set all minecraft servers in child directories to offline mode.
 ```bash
 sudo sed -i 's/online-mode=true/online-mode=false/g' $( sudo find . -type f | grep server.properties)
 ```
@@ -63,6 +74,7 @@ sudo sed -i 's/online-mode=true/online-mode=false/g' $( sudo find . -type f | gr
 In the context of a Minecraft server, `online-mode` determines whether the server should authenticate players with Minecraft's account system. Setting `online-mode` to `false` allows players with unofficial Minecraft clients to join the server.
 
 ### Combine Markdown Files Into One
+This bash script combines all Markdown files in each subdirectory into a single Markdown file named after the subdirectory. It loops through each subdirectory, concatenates all Markdown files in it using `cat`, and outputs the result to a new Markdown file.
 ```bash
 for dir in */; do
     # Trim the trailing slash to get the directory name
@@ -71,13 +83,15 @@ for dir in */; do
     cat "$dir"*.md > "${dirname}.md"
 done
 ```
-This bash script combines all Markdown files in each subdirectory into a single Markdown file named after the subdirectory. It loops through each subdirectory, concatenates all Markdown files in it using `cat`, and outputs the result to a new Markdown file.
 
 ### Find unique values for a field in a bunch of json files
+Lists all unique values for fields in all json files in the current directory.
 ```bash
 find . -type f -name "*.json" | xargs cat {} | jq .<name_of_the_field> -c | sort | uniq
 ```
-
+<!-- 
+[name_of_the_field]: <> (placeholder=status desc="The path to a field in the json file")
+-->
 The command is a pipeline of several commands:
 1. `find . -type f -name "*.json"`: This command searches for all JSON files in the current directory and its subdirectories. The `.` specifies the current directory as the starting point for the search. `-type f` restricts the search to files, and `-name "*.json"` matches any file that ends with `.json`.
 2. `xargs cat {}`: This command reads items from the standard input (in this case, the list of JSON files found by the `find` command), and executes the `cat` command for each item. The `cat` command concatenates and prints the contents of the files.

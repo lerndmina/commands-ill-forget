@@ -29,32 +29,45 @@ Here's a step-by-step breakdown:
 - `h264vids/"${f%.*}.mkv"`: This is the output file. It's placed in the `h264vids` directory and has the same name as the input file, but with the extension changed to `.mkv`.
 
 ### Convert Images And Compress
+Converts images and compresses them
 ```bash
-convert mascot.png -quality 70 mascot.webp
+convert <from> -quality 70 <to>
 ```
-This uses the `convert` utility from [ImageMagick](https://www.imagemagick.org/) to convert an image file named `mascot.png` into a WebP format image named `mascot.webp`, while also compressing the image quality to `70%`.
+<!-- 
+[from]: <> (placeholder=img.png validation="file image/.+" desc="The filename of the source file")
+[to]: <> (placeholder=output.png validation="regex (.+)\.(.+)" desc="The filename of the destination file with its file extension")
+ -->
+This uses the `convert` utility from [ImageMagick](https://www.imagemagick.org/) to convert an image file `<from>` another file named `<to>`, while also compressing the image quality to `70%`.
 
 ### Crop transparent background from image
 This command is using the `convert` command from the [ImageMagick](https://www.imagemagick.org/) software suite to crop away the transparent background.
 ```bash
-convert mascot_favicon.png -trim +repage mascot_favicon_trimmed.png
+convert <from> -trim +repage <to>
 ```
-1. `convert mascot_favicon.png`: This initiates the conversion process using the ImageMagick `convert` command, and it specifies the input file as `mascot_favicon.png`.
+<!-- 
+[from]: <> (placeholder=img.png validation="file image/.+" desc="The filename of the source file")
+[to]: <> (placeholder=output.png validation="regex (.+)\.(.+)" desc="The filename of the destination file with its file extension")
+ -->
+1. `convert <from>`: This initiates the conversion process using the ImageMagick `convert` command, and it specifies the input file as `<from>`.
 
 2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.
 
 3. `+repage`: This option resets the virtual canvas information of the image. After trimming, the image may have a smaller size, and `+repage` ensures that the image's virtual canvas is adjusted to match its actual dimensions.
 
-4. `mascot_favicon_trimmed.png`: This specifies the output filename for the resulting image with the trimmed transparent background.
+4. `<to>`: This specifies the output filename for the resulting image with the trimmed transparent background.
 
-So, in summary, this command takes an input image (`mascot_favicon.png`), removes the transparent background through trimming, adjusts the virtual canvas, and then saves the result as `mascot_favicon_trimmed.png`.
+So, in summary, this command takes an input image (`<from>`), removes the transparent background through trimming, adjusts the virtual canvas, and then saves the result as `<to>`.
 
 ### Crop image to create favicon
 This command crops an image and removes its near transparent pixels in order to create a favicon for a website.
 ```bash
-convert mascot_favicon.png -trim +repage -resize 180x180 mascot_favicon_trimmed.ico
+convert <from> -trim +repage -resize 180x180 <to>.ico
 ```
-1. `convert mascot_favicon.png`: This initiates the conversion process using the ImageMagick `convert` command and specifies the input file as `mascot_favicon.png`.
+<!-- 
+[from]: <> (placeholder=favicon.png validation="file image/.+" desc="The filename of the source file")
+[to]: <> (placeholder=favicon validation="regex (.+)" desc="The filename of the .ico file without the .ico part")
+ -->
+1. `convert <from>`: This initiates the conversion process using the ImageMagick `convert` command and specifies the input file as `<from>`, replace `<from>` with the name of the file you are trying to crop and convert.
 
 2. `-trim`: This option instructs ImageMagick to trim away any surrounding transparent or near-transparent pixels from the edges of the image, effectively removing the transparent background.
 
@@ -62,7 +75,7 @@ convert mascot_favicon.png -trim +repage -resize 180x180 mascot_favicon_trimmed.
 
 4. `-resize 180x180`: This option resizes the image to a width of 180 pixels and a height of 180 pixels. This is commonly used for creating favicons, which are small icons used to represent websites.
 
-5. `mascot_favicon_trimmed.ico`: This specifies the output filename for the resulting image with the trimmed transparent background and resized dimensions. The file is saved in the ICO (Icon) format, which is often used for favicons.
+5. `<to>.ico`: This specifies the output filename for the resulting image with the trimmed transparent background and resized dimensions. The file is saved in the ICO (Icon) format, which is often used for favicons. Replace `<to>` with the name of the file without extensions.
 
-So, in summary, this command takes an input image (`mascot_favicon.png`), removes the transparent background through trimming, adjusts the virtual canvas, resizes the image to 180x180 pixels, and then saves the result as `mascot_favicon_trimmed.ico`.
+So, in summary, this command takes an input image (`<from>`), removes the transparent background through trimming, adjusts the virtual canvas, resizes the image to 180x180 pixels, and then saves the result as `<to>.ico`.
 

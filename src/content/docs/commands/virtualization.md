@@ -7,6 +7,7 @@ TODO: Add description
 ```
 
 ### Print iommu groups:
+Prints out all iommu groups on the system, this can be useful if you are trying to see if you need to remap them for pcie passthough.
 ```bash
 shopt -s nullglob
 for g in $(find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V); do
