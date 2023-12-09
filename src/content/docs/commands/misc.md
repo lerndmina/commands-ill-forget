@@ -119,3 +119,13 @@ The URL `https://get.docker.com/` points to the Docker installation script. This
 The pipe symbol (`|`) is used to redirect the output of the `curl` command to the next command in the pipeline. In this case, the output is passed to the `bash` command.
 
 The `bash` command executes the downloaded script, which installs Docker on the system. The `CHANNEL=stable` part is an environment variable assignment that sets the installation channel to "stable". This ensures that the stable version of Docker is installed.
+
+### Store git credentials
+This command stores your git credentials in the git config file.
+```bash
+git config --global credential.helper store
+```
+1. `git config`: This command is used to configure Git. It can be used to set configuration variables that control the behavior of Git.
+2. `--global`: This option tells Git to use the global configuration file. This file is located at `~/.gitconfig` on Linux and macOS, and `%USERPROFILE%\.gitconfig` on Windows.
+3. `credential.helper store`: This command configures Git to use the `store` credential helper. The credential helper is a program that stores credentials for Git. The `store` credential helper stores credentials in a plain-text file on disk, which is not secure. It is recommended to use a more secure credential helper, such as the `cache` credential helper, which stores credentials in memory for a configurable amount of time.
+
