@@ -29,3 +29,17 @@ tar -czvf <file_name>.tar.gz <files/directories>
 
 So, in summary, this command creates a new compressed tar archive (`.tar.gz`) named `<file_name>.tar.gz` containing the specified files or directories.
 
+### Creating a symbolic link
+This is a command for creating a symbolic link to a file or directory.
+```bash
+ln -s <target> <link_name>
+```
+<!--
+[target]: <> (placeholder=* validation="regex .+" desc="This is the file or directory to which the symbolic link will point")
+[link_name]: <> (placeholder=* validation="regex .+" desc="This is the name of the symbolic link")
+-->
+
+1. `ln`: This is the command-line utility for creating links between files. It is commonly used for creating symbolic links.
+2. `-s`: This is an option used with the `ln` command. It indicates that the link to be created is a symbolic link.
+3. `<target>`: This is the file or directory to which the symbolic link will point. Replace this placeholder with the actual name of the file or directory to which you want to create a symbolic link.
+4. `<link_name>`: This is the name of the symbolic link. Replace this placeholder with the actual name you want to give to the symbolic link.
