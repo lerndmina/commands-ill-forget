@@ -44,6 +44,10 @@ export default defineConfig({
           label: "Tutorials",
           autogenerate: { directory: "tutorials" },
         },
+        {
+          label: "Self Hosting Stuff",
+          autogenerate: { directory: "selfhosting" },
+        },
       ],
     }),
   ],
