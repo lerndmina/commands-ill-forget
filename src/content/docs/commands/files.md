@@ -29,6 +29,26 @@ tar -czvf <file_name>.tar.gz <files/directories>
 
 So, in summary, this command creates a new compressed tar archive (`.tar.gz`) named `<file_name>.tar.gz` containing the specified files or directories.
 
+### Unzip a .tar.gz file into the current directory
+This is a command for extracting a `.tar.gz` file into the current directory.
+```bash
+tar -xvf <file_name>.tar.gz
+```
+<!--
+[file_name]: <> (placeholder=archive validation="regex [A-Za-z\d\s\-_\.]+" desc="This is the name of the archive to extract without the .tar.gz part")
+-->
+
+1. `tar`: This is the command-line utility for handling tape archives (tar). It is commonly used for bundling files and directories together.
+
+2. `-xvf`: These are options used with the `tar` command:
+   - `-x`: Extract files from an archive.
+   - `-v`: This is an optional argument to print all files being extracted.
+   - `-f`: Specify the name of the archive file.
+
+3. `<file_name>.tar.gz`: This is the name of the compressed archive file that you want to extract. Replace `<file_name>` with the actual name of the archive file you want to extract.
+
+When you run this command, the specified `.tar.gz` file will be extracted into the current directory.
+
 ### Creating a symbolic link
 This is a command for creating a symbolic link to a file or directory.
 ```bash
