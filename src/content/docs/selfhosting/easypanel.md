@@ -46,7 +46,7 @@ This is where things are a bit weird. What I'd reccomend is setting a wildcard D
 This is different for every DNS provider, but here's how you do it with Cloudflare. First go to your domain's DNS settings and add an A record with the name '@' and the value as your server's IP address. Then add a CNAME record with the name as '*' and the value as your domain name. This will make it so that all subdomaind and the root domain will point to your server.
 
 Here's an example using the `commands.wiki` domain:
-![Cloudflare DNS Settings](/src/assets/docs/selfhosting/easypanel/cloudflare-dns.png)
+![Cloudflare DNS Settings](../../../assets/docs/selfhosting/easypanel/cloudflare-dns.png)
 :::note
 This is just an example, your DNS provider will look different, but the settings should be similar.
 :::
@@ -54,7 +54,7 @@ This is just an example, your DNS provider will look different, but the settings
 ### Setting a custom domain in EasyPanel
 With your DNS records set up, you can set a custom domain in the EasyPanel UI. Go to the settings page and click on the "General" tab. Under the "Custom Domain" section, enter your custom domain and click "Save". It might be a good idea to make sure "Serve on IP Address" is toggled on so that you can still access the EasyPanel UI if neither of the domains work, at least for now.
 
-![Custom Domain Settings Page](/src/assets/docs/selfhosting/easypanel/ep-custom-domain.png)
+![Custom Domain Settings Page](../../../assets/docs/selfhosting/easypanel/ep-custom-domain.png)
 Now would be a good time to add your letsencrypt email and click "Save" again. This will allow letsencrypt to generate a certificate for your domain and send you an email if it's about to expire.
 
 ## Using my custom domain in services
@@ -66,7 +66,7 @@ We're skipping over a little bit here. I'm going to assume you already have a pr
 Now, go to your service in the EasyPanel UI and click on the "Domains" tab. You'll notice that EasyPanel has already added a domain for you, it's a subdomain of the Default Domain we saw earlier. Click "Edit" and change the "Host" a subdomain of your custom domain. For example, if you have a service called `example` and your custom domain is `customdomain.com`, you could set the host to `example.customdomain.com`.
 
 Here's an example of what that might look like:
-![Service Domain Example](/src/assets/docs/selfhosting/easypanel/service-domain-example.png)
+![Service Domain Example](../../../assets/docs/selfhosting/easypanel/service-domain-example.png)
 
 ### Issues
 I've noticed that EasyPanel doesn't have ways to set a domain for an app everywhere, for example when you have a MariaDB database and you enable PhpMyAdmin, you can't set a custom domain for it, EasyPanel will just autogenerate a domain based on your Default Domain. This is quite annoying and there isn't a way around it other than adding custom traefik configuration, which is beyond the scope of this.
