@@ -121,7 +121,8 @@ The pipe symbol (`|`) is used to redirect the output of the `curl` command to th
 The `bash` command executes the downloaded script, which installs Docker on the system. The `CHANNEL=stable` part is an environment variable assignment that sets the installation channel to "stable". This ensures that the stable version of Docker is installed.
 
 ### Allow Docker Commands Without Sudo
-This procedure grants the current user privileges to run Docker commands without using `sudo`.                                                                                                                                                  ```bash title="Bash"
+This procedure grants the current user privileges to run Docker commands without using `sudo`.
+```bash title="Bash"
 sudo usermod -aG docker $USER
 ```
 
