@@ -120,6 +120,18 @@ The pipe symbol (`|`) is used to redirect the output of the `curl` command to th
 
 The `bash` command executes the downloaded script, which installs Docker on the system. The `CHANNEL=stable` part is an environment variable assignment that sets the installation channel to "stable". This ensures that the stable version of Docker is installed.
 
+### Allow Docker Commands Without Sudo
+This procedure grants the current user privileges to run Docker commands without using `sudo`.
+```bash title="Bash"
+sudo usermod -aG docker $USER
+```
+
+1. `sudo usermod -aG docker $USER`: Adds the current user to the `docker` group to enable the execution of Docker commands without the need for `sudo`.
+
+   - `-aG`: Appends (does not replace) the user to the supplementary groups mentioned by `-G`. This option is used to make sure that the current user is added to the group without affecting their membership in other groups.
+   - `docker`: Specifies the group name that the user is being added to, which is the `docker` group.
+   - `$USER`: An environment variable that represents the current logged-in user. This user gets the permission to run Docker commands without using `sudo`.
+
 ### Store git credentials
 This command stores your git credentials in the git config file.
 ```bash
