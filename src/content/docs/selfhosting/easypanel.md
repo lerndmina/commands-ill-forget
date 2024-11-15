@@ -113,9 +113,9 @@ https://wp-test-ide.customdomain.com/?easypanel-token=your-token-here
 If you don't include the `easypanel-token` in the URL you'll be unable to access the IDE
 :::
 
-## Converting docker-compose to EasyPanel
-EasyPanel does not directly support docker-compose files, however, there is an [Online Converter](https://compose-to-easypanel.netlify.app/) that can help you convert your docker-compose file to an EasyPanel compatible format. It's not perfect and you'll likely have to make some changes to the generated file, but it's a good starting point. Here's a link to it's [GitHub Repo](https://github.com/ravenbroetzmann/compose-to-easypanel) which contains a readme with more information on how to use it.
+## Using docker-compose in Easypanel
+Edit: This has changed, use the docker compose app type in easypanel instead of any third-party tools.
 
 :::note
-With complex docker-compose files it may be easier to read through the file and manually add the services in EasyPanel.
+This option is still in beta so might not work for all compose fles or projects/
 :::
